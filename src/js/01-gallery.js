@@ -5,11 +5,6 @@ import { galleryItems } from './gallery-items';
 
 console.log(galleryItems);
 
-import { galleryItems } from './gallery-items.js';
-// Change code below this line
-
-console.log(galleryItems);
-
 const galleryContainer = document.querySelector('.gallery');
 const itemsMarkup = createItemsMarkup(galleryItems);
 
@@ -30,16 +25,17 @@ galleryContainer.addEventListener('click', onImageClick);
 
 function onImageClick(evt) {
   evt.preventDefault();
+
   if (
     evt.target.nodeName !== 'IMG' &&
-    !document.querySelector('.SimpleLightbox ')
+    !document.querySelector('.simpleLightbox')
   ) {
     return;
   }
   const source = evt.target.dataset.source;
 
   const instance = SimpleLightbox.create(`
-    <img src="${source} "width="800" height="600">`);
+    <img src="${source}" width="800" height="600">`);
 
   instance.show();
 
