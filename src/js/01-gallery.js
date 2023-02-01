@@ -32,18 +32,12 @@ function onImageClick(evt) {
   ) {
     return;
   }
-  const source = evt.target.dataset.source;
-
-  const instance = SimpleLightbox.create(`
-    <img src="${source}" width="800" height="600">`);
-
-  instance.show();
 
   document.addEventListener('keydown', addKeyboardHandler);
 
   function addKeyboardHandler(event) {
     if (event.code === 'Escape') {
-      instance.close();
+      return;
     }
   }
 }
@@ -52,12 +46,6 @@ let lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 100,
   captionType: 'alt',
-  //   animationSlide: true,
-  //   animationSpeed: 250,
   widthRatio: 0.8,
   heightRatio: 0.9,
 });
-
-// var lightbox = new SimpleLightbox(".gallery a", {
-//   /* options */
-// });
